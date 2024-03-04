@@ -1,0 +1,24 @@
+Jenkin installation in centos
+
+1) sudo yum install java-1.8.0-openjdk-devel
+
+enable the Jenkins repositor
+2) curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+
+add the repository to your system with
+3) sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+install the latest stable version of Jenkins
+4) sudo yum install jenkins
+
+start the Jenkins service
+5) sudo systemctl start jenkins
+
+To check whether it started successfully run:
+6) systemctl status jenkins
+
+enable the Jenkins service to start on system boot
+7) sudo systemctl enable jenkins
+
+8) sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+   sudo firewall-cmd --reload
